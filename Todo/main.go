@@ -23,10 +23,10 @@ type Todos []Todo
 func listTodos(todos Todos) {
 	for i, t := range todos {
 
-		if t.IsCompleted == true {
-			fmt.Printf("%d %s - ✅", i+1, t.Task)
+		if !t.IsCompleted {
+			fmt.Printf("%d %s - ✅%s", i+1, t.Task, t.UpdatedAt.Format("2006-01-02 15:04:05"))
 		} else {
-			fmt.Printf("%d %s - ❌", i+1, t.Task)
+			fmt.Printf("%d %s - ❌%s", i+1, t.Task, t.UpdatedAt.Format("2006-01-02 15:04:05"))
 		}
 		fmt.Println()
 	}
